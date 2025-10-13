@@ -3290,3 +3290,4 @@ module load cuda/11.2  # if using GPU acceleration
 - **dbNSFP database**: Version 5.1 or higher
 - **AlphaMissense database**: Google DeepMind predictions
 - **ESM predictions**: Meta/Facebook protein language model scores
+
