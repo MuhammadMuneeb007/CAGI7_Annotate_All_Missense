@@ -7,9 +7,9 @@
 
 <!-- Share Buttons -->
 
-[![Share on Twitter](https://img.shields.io/badge/Share%20on-Twitter-1DA1F2.svg?style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/intent/tweet?text=Check%20out%20this%20Comprehensive%20Genomic%20Variant%20Annotation%20Pipeline&url=https://github.com/MuhammadMuneeb007/AnnotationChallenge&hashtags=bioinformatics,genomics,machinelearning,CAGI)
-[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-0077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/MuhammadMuneeb007/AnnotationChallenge)
-[![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-FF4500.svg?style=flat-square&logo=reddit&logoColor=white)](https://reddit.com/submit?url=https://github.com/MuhammadMuneeb007/AnnotationChallenge&title=Comprehensive%20Genomic%20Variant%20Annotation%20Pipeline)
+[![Share on Twitter](https://img.shields.io/badge/Share%20on-Twitter-1DA1F2.svg?style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/intent/tweet?text=Check%20out%20this%20Comprehensive%20Genomic%20Variant%20Annotation%20Pipeline&url=https://github.com/MuhammadMuneeb007/CAGI7_Annotate_All_Missense&hashtags=bioinformatics,genomics,machinelearning,CAGI)
+[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-0077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/MuhammadMuneeb007/CAGI7_Annotate_All_Missense)
+[![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-FF4500.svg?style=flat-square&logo=reddit&logoColor=white)](https://reddit.com/submit?url=https://github.com/MuhammadMuneeb007/CAGI7_Annotate_All_Missense&title=Comprehensive%20Genomic%20Variant%20Annotation%20Pipeline)
 
 
 
@@ -2270,3 +2270,4 @@ If you use this pipeline in your research, please cite:
 - **Lab**: [BioSig Lab](https://biosig.lab.uq.edu.au/)
 
 ---
+
