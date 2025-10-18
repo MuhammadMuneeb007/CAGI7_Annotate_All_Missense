@@ -1,6 +1,21 @@
 # Comprehensive Genomic Variant Annotation and Pathogenicity Prediction Pipeline
 
-A complete scientific workflow for processing, annotating, and predicting the pathogenicity of genomic variants using machine learning approaches. This pipeline integrates multiple annotation databases, implements sophisticated feature engineering, and employs ensemble machine learning methods for variant effect prediction.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/ML-XGBoost-orange.svg?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+![Bioinformatics](https://img.shields.io/badge/Bioinformatics-Genomics-blueviolet.svg?style=for-the-badge&logo=dna&logoColor=white)
+
+<!-- Share Buttons -->
+
+[![Share on Twitter](https://img.shields.io/badge/Share%20on-Twitter-1DA1F2.svg?style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/intent/tweet?text=Check%20out%20this%20Comprehensive%20Genomic%20Variant%20Annotation%20Pipeline&url=https://github.com/MuhammadMuneeb007/AnnotationChallenge&hashtags=bioinformatics,genomics,machinelearning,CAGI)
+[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-0077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/MuhammadMuneeb007/AnnotationChallenge)
+[![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-FF4500.svg?style=flat-square&logo=reddit&logoColor=white)](https://reddit.com/submit?url=https://github.com/MuhammadMuneeb007/AnnotationChallenge&title=Comprehensive%20Genomic%20Variant%20Annotation%20Pipeline)
+
+
+
+## 📋 Overview
+
+A complete workflow for processing, annotating, and predicting the pathogenicity of genomic variants using machine learning approaches. This pipeline integrates multiple annotation databases, implements sophisticated feature engineering, and employs ensemble machine learning methods for variant effect prediction.
 
 ## Scientific Pipeline Overview and Workflow
 
@@ -160,9 +175,9 @@ EVALUATION METRICS:
 
 This pipeline addresses the critical challenge in genomics: predicting whether a genetic variant will have a deleterious effect on human health. The methodology combines:
 
-1. **Multi-database Annotation**: Integration of 35+ genomic databases including population frequencies, conservation scores, and functional predictions
+1. **Multi-database Annotation**: Integration of 20+ genomic databases including population frequencies, conservation scores, and functional predictions
 2. **Feature Engineering**: Systematic transformation of genomic annotations into machine learning features
-3. **Ensemble Machine Learning**: Advanced algorithms including XGBoost, deep learning, and SMOTE-balanced training
+3. **Ensemble Machine Learning**: Algorithms including XGBoost, deep learning, and SMOTE-balanced training
 4. **Benchmark Validation**: Comparison against established methods like SIFT, PolyPhen-2, and AlphaMissense
 
 ### Theoretical Foundation
@@ -476,49 +491,7 @@ PHASE 6: Production & Submission (12-24 hours)
 │          CAGI Format Conversion (Competition submission)                   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-
-### Resource Allocation and Timing Chart
-
-```
-PIPELINE EXECUTION TIMELINE:
-
-Hours:  0    8   16   24   32   40   48   56   64   72   80   88   96  104  112  120
-        |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-
-Setup Phase:
-Database Download     [████████                                                    ]
-Environment Setup     [██                                                          ]
-
-Data Preparation:
-Format Conversion              [█                                                  ]
-Command Generation             [                                                   ]
-
-Annotation (Parallel - CRITICAL PATH):
-Chr 1-5 Annotation             [████████████████████████████████████████████████  ]
-Chr 6-10 Annotation            [████████████████████████████████████████████████  ]
-Chr 11-15 Annotation           [████████████████████████████████████████████████  ]
-Chr 16-22,X,Y,M                [████████████████████████████████████████████████  ]
-
-Consolidation:
-Merge Results                                                          [████████  ]
-Feature Integration                                                            [████████████]
-
-ML Pipeline:
-Feature Engineering                                                                     [████]
-Model Training                                                                         [████████]
-
-Evaluation:
-Benchmarking                                                                           [████    ]
-Validation                                                                             [██      ]
-
-Production:
-Inference                                                                              [████████████████████████]
-Submission                                                                                                   [█]
-
-Legend: [█] = Active processing time
-        Critical Path: Annotation phase (48 hours) determines minimum execution time
-        Total Pipeline Time: ~120 hours (5 days) with parallel processing
-```
+ 
 
 ### Memory and Storage Requirements by Phase
 
@@ -576,6 +549,43 @@ STORAGE REQUIREMENTS:                    MEMORY REQUIREMENTS:
                                        • 64GB minimum viable
 TOTAL STORAGE: ~1.9TB                  • SSD for temp files
 ```
+
+## Key Results and Visualizations
+
+This section presents the primary results and performance metrics from the comprehensive variant annotation and machine learning pipeline. All figures are generated from analyses on ClinVar-validated variants and genome-wide predictions.
+
+### Model Performance and Evaluation
+
+Our ensemble machine learning approach demonstrates superior performance in distinguishing pathogenic from benign variants:
+
+![Figure 1: Confusion Matrix](Figure1-ConfusionMetricBestModel.png)
+**Figure 1: Confusion Matrix for Best Model** - Shows classification performance on held-out test data with high accuracy in both pathogenic and benign variant prediction. True positives (pathogenic correctly classified) and true negatives (benign correctly classified) dominate the diagonal, indicating strong discriminative ability.
+
+![Figure 2: Stability Metrics](Figure2-StabilityMetricBestModel.png)
+**Figure 2: Model Stability Across Cross-Validation** - Demonstrates consistent performance across 5-fold cross-validation with metrics including Matthews Correlation Coefficient (MCC), ROC-AUC, and Precision-Recall AUC. Low variance across folds indicates robust model generalization.
+
+![Figure 3: Feature Importance](Figure3-FeatureImportanceMetricBestModel.png)
+**Figure 3: Top 30 Feature Importance Rankings** - SHAP (SHapley Additive exPlanations) analysis reveals the most influential predictive features. AlphaMissense AI predictions, conservation scores (GERP++, PhastCons), population frequency data (gnomAD), and ESM protein language model scores emerge as the strongest predictors of variant pathogenicity.
+
+### Dimensionality Reduction and Dataset Characterization
+
+![Figure 4: PCA Analysis](Figure4-MultipleDatasetPCA.png)
+**Figure 4: Principal Component Analysis of Multiple Datasets** - Visualization of high-dimensional feature space reduced to two principal components. Clear separation between pathogenic (red) and benign (blue) variants demonstrates that the top PCs capture biologically meaningful variance. Different ClinVar dataset subsets show consistent clustering patterns.
+
+![Figure 5: Dataset Distribution](Figure5-FinalDatasetDistribution.png)
+**Figure 5: Final Training Dataset Distribution** - Shows the distribution of pathogenic versus benign variants in the final curated dataset after quality filtering and SMOTE oversampling. The balanced representation ensures unbiased model training while maintaining biological diversity.
+
+![Figure 6: Feature Distributions](Figure6-BestModelFeaturesDistributions.png)
+**Figure 6: Top Feature Distributions for Pathogenic vs Benign Variants** - Kernel density estimation plots comparing the distribution of the most important predictive features between pathogenic (red) and benign (blue) variant classes. Clear separation validates the discriminatory power of selected features including AlphaMissense scores, conservation metrics, and population frequencies.
+
+### Genome-Wide Inference and Score Distributions
+
+![Figure 7: Chromosome 10 Inference](Figure7-Distributionofscoreforcasesandcontrolsforchromsome10forinferencescores.png)
+**Figure 7: Pathogenicity Score Distribution for Chromosome 10** - Distribution of model-predicted pathogenicity scores for cases (known pathogenic variants) versus controls (benign variants) on chromosome 10. The clear bimodal separation with minimal overlap demonstrates excellent discriminative performance on unseen genomic regions.
+
+![Figure 8: Genome-Wide Scores](Figure8-Distributionofallscores.png)
+**Figure 8: Comprehensive Genome-Wide Score Distribution** - Overall distribution of pathogenicity scores across all variants in the entire genome. The bimodal distribution with distinct peaks near 0 (benign) and 1 (pathogenic) validates proper model calibration and confirms that the ensemble approach successfully distinguishes variant classes across diverse genomic contexts.
+ 
 
 ## Advanced Scientific Methodology
 
@@ -820,175 +830,11 @@ ENCODING METHOD SELECTION CRITERIA:
 │                                                                    │
 └────────────────────────────────────────────────────────────────────┘
 ```
-
-#### Feature Selection Pipeline
-
-```python
-# Multi-stage feature selection approach
-def comprehensive_feature_selection(X, y):
-    """
-    Three-stage feature selection combining statistical,
-    model-based, and recursive elimination approaches
-    """
-
-    # Stage 1: Statistical filtering
-    # Remove features with low variance
-    selector_var = VarianceThreshold(threshold=0.01)
-    X_var = selector_var.fit_transform(X)
-
-    # Univariate statistical tests
-    if is_classification(y):
-        selector_stat = SelectKBest(chi2, k=min(1000, X_var.shape[1]))
-    else:
-        selector_stat = SelectKBest(f_regression, k=min(1000, X_var.shape[1]))
-    X_stat = selector_stat.fit_transform(X_var, y)
-
-    # Stage 2: Model-based selection
-    # L1 regularization for sparsity
-    lasso = LassoCV(cv=5, random_state=42)
-    selector_l1 = SelectFromModel(lasso, prefit=False)
-    X_l1 = selector_l1.fit_transform(X_stat, y)
-
-    # Stage 3: Recursive feature elimination
-    # Cross-validated RFE with XGBoost
-    estimator = XGBClassifier(random_state=42)
-    selector_rfe = RFECV(estimator, cv=5, scoring='matthews_corrcoef')
-    X_final = selector_rfe.fit_transform(X_l1, y)
-
-    return X_final, [selector_var, selector_stat, selector_l1, selector_rfe]
-```
-
-### Advanced Machine Learning Architecture
-
-#### XGBoost Hyperparameter Optimization
-
-```python
-# Comprehensive hyperparameter search space
-param_grid = {
-    # Tree structure parameters
-    'n_estimators': [100, 300, 500, 1000],
-    'max_depth': [3, 6, 9, 12],
-    'min_child_weight': [1, 3, 5],
-
-    # Learning parameters
-    'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'subsample': [0.8, 0.9, 1.0],
-    'colsample_bytree': [0.8, 0.9, 1.0],
-    'colsample_bylevel': [0.8, 0.9, 1.0],
-
-    # Regularization parameters
-    'reg_alpha': [0, 0.1, 1],  # L1 regularization
-    'reg_lambda': [1, 1.1, 1.5],  # L2 regularization
-
-    # Advanced parameters
-    'gamma': [0, 0.1, 0.2],  # Minimum split loss
-    'scale_pos_weight': [1, 3, 5]  # Class imbalance handling
-}
-
-# Custom MCC scoring function
-def mcc_scorer(y_true, y_pred):
-    """Matthews Correlation Coefficient for imbalanced classification"""
-    return matthews_corrcoef(y_true, y_pred)
-
-# Grid search with stratified cross-validation
-grid_search = GridSearchCV(
-    estimator=XGBClassifier(random_state=42, use_label_encoder=False),
-    param_grid=param_grid,
-    scoring=make_scorer(mcc_scorer),
-    cv=StratifiedKFold(n_splits=5, shuffle=True, random_state=42),
-    n_jobs=-1,
-    verbose=1
-)
-```
-
-#### SMOTE Implementation for Class Balancing
-
-```python
-# Advanced SMOTE with border and safety considerations
-def advanced_smote_pipeline(X, y):
-    """
-    Multi-variant SMOTE approach with quality control
-    """
-
-    # Step 1: Identify class distribution
-    class_counts = Counter(y)
-    minority_class = min(class_counts, key=class_counts.get)
-
-    # Step 2: Apply Borderline SMOTE for difficult cases
-    smote_borderline = BorderlineSMOTE(
-        sampling_strategy='auto',
-        k_neighbors=5,
-        m_neighbors=10,
-        random_state=42
-    )
-
-    # Step 3: Alternative ADASYN for adaptive synthesis
-    adasyn = ADASYN(
-        sampling_strategy='auto',
-        n_neighbors=5,
-        random_state=42
-    )
-
-    # Step 4: Ensemble approach - combine multiple techniques
-    pipeline = Pipeline([
-        ('smote', smote_borderline),
-        ('clean', EditedNearestNeighbours(n_neighbors=3))
-    ])
-
-    X_resampled, y_resampled = pipeline.fit_resample(X, y)
-
-    return X_resampled, y_resampled
-```
+ 
+ 
 
 ### Model Evaluation and Validation Framework
-
-#### Comprehensive Metrics Suite
-
-```python
-def comprehensive_evaluation(y_true, y_pred, y_proba):
-    """
-    Complete evaluation metrics for variant classification
-    """
-
-    # Primary metrics
-    mcc = matthews_corrcoef(y_true, y_pred)
-    roc_auc = roc_auc_score(y_true, y_proba[:, 1])
-    pr_auc = average_precision_score(y_true, y_proba[:, 1])
-
-    # Clinical metrics
-    sensitivity = recall_score(y_true, y_pred, pos_label=1)
-    specificity = recall_score(y_true, y_pred, pos_label=0)
-    ppv = precision_score(y_true, y_pred, pos_label=1)
-    npv = precision_score(y_true, y_pred, pos_label=0)
-
-    # Balanced metrics
-    f1 = f1_score(y_true, y_pred)
-    balanced_acc = balanced_accuracy_score(y_true, y_pred)
-
-    # Threshold-independent metrics
-    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-
-    # Clinical utility metrics
-    diagnostic_odds_ratio = (tp * tn) / (fp * fn) if (fp * fn) > 0 else np.inf
-
-    # Calibration assessment
-    reliability_diagram = calibration_curve(y_true, y_proba[:, 1], n_bins=10)
-
-    return {
-        'mcc': mcc,
-        'roc_auc': roc_auc,
-        'pr_auc': pr_auc,
-        'sensitivity': sensitivity,
-        'specificity': specificity,
-        'ppv': ppv,
-        'npv': npv,
-        'f1_score': f1,
-        'balanced_accuracy': balanced_acc,
-        'diagnostic_odds_ratio': diagnostic_odds_ratio,
-        'calibration': reliability_diagram
-    }
-```
-
+ 
 ## ANNOVAR Installation and Database Setup
 
 ### Step 1: Download and Install ANNOVAR
@@ -1141,7 +987,6 @@ AnnotationChallenge/
 │   ├── annotate_variation.pl
 │   ├── table_annovar.pl
 │   └── humandb/               # All annotation databases
-├── GitHub/                    # Pipeline scripts
 ├── dbNSFP5.1_variant.chr*.gz  # dbNSFP chromosome files
 ├── AlphaMissense_hg38.tsv     # AlphaMissense predictions
 └── esm_variants/              # ESM predictions
@@ -1769,6 +1614,11 @@ python Step6.15-FeatureAnalysis-PCAAnalysis.py
 - Visualizes feature relationships
 - Determines optimal number of components (explained variance ≥95%)
 
+**PCA Visualization and Results**:
+
+![PCA Analysis of Multiple Datasets](GitHub/Figure4-MultipleDatasetPCA.png)
+_Figure 4: Principal Component Analysis visualization of multiple ClinVar datasets. The plot shows clear separation between pathogenic (red) and benign (blue) variants in the reduced dimensional space, demonstrating that the top principal components capture biologically meaningful variance._
+
 ##### Step6.16-FeatureAnalysis-TrainerModels.py - Multi-Algorithm Ensemble
 
 ```bash
@@ -1797,246 +1647,7 @@ python Step6.17-FeatureAnalysis-TrainerModelPyCart.py
 - Batch normalization for training stability
 - Adam optimizer with learning rate scheduling
 - Early stopping based on validation loss
-
-#### ClinVar-Focused Analysis Pipeline
-
-##### Step7 Series - ClinVar-Specific Modeling
-
-The Step7 series implements specialized analyses focused on ClinVar data:
-
-```bash
-# Feature extraction and model training
-python Step7-ExtractFeatures-Clinvar.py
-python Step7-GetClinvarVariants.py
-python Step7.1-TrainModel-ClinvarML.py  # Machine learning approach
-python Step7.1-TrainModel-ClinvarDL.py  # Deep learning approach
-```
-
-**ClinVar-Specific Innovations**:
-
-1. **Clinical Context Integration**: Incorporates clinical review status and submitter information
-2. **Phenotype Mapping**: Links variants to specific diseases and phenotypes
-3. **Evidence Weighting**: Considers strength of clinical evidence in training
-4. **Temporal Validation**: Tests model performance across ClinVar release dates
-
-#### Advanced ML Optimization Pipeline
-
-##### Step8 Series - Sophisticated Machine Learning
-
-```bash
-python Step8-MachineLearning.py
-python Step8-MachineLearning2.py
-python Step8-MachineLearning2-FeatureAnalysis.py
-```
-
-**Advanced Techniques**:
-
-- **Feature Selection**: Recursive feature elimination with cross-validation
-- **Model Stacking**: Multiple levels of ensemble learning
-- **Calibration**: Platt scaling and isotonic regression for probability calibration
-- **Uncertainty Quantification**: Confidence intervals for predictions
-
-##### Step9 Series - Final Model Optimization
-
-```bash
-python Step9.1-Final.py
-python Step9.2-Final.py
-python Step9.2-FinalCalibration.py
-python Step9.2.1-ThresholdOptimization.py
-```
-
-**Final Model Refinements**:
-
-1. **Threshold Optimization**: Youden's J statistic and clinical utility-based thresholds
-2. **Model Calibration**: Ensures predicted probabilities match observed frequencies
-3. **Cross-validation Stability**: Robust performance across multiple CV folds
-4. **Clinical Decision Analysis**: Cost-benefit analysis for different threshold settings
-
-### Phase 6: Model Evaluation and Benchmarking
-
-#### Comprehensive Benchmarking Framework
-
-##### Step10-BenchmarkOtherMethods.py - Comparative Analysis
-
-```bash
-python Step10-BenchmarkOtherMethods.py
-```
-
-**Scientific Validation**: Systematic comparison against established variant prediction methods.
-
-**Benchmark Methods Included**:
-
-1. **SIFT (Sorting Intolerant From Tolerant)**:
-
-   - Sequence homology-based prediction
-   - Score range: 0-1 (lower = more damaging)
-   - Threshold: 0.05 for damaging prediction
-
-2. **PolyPhen-2 (Polymorphism Phenotyping v2)**:
-
-   - Structure and sequence-based prediction
-   - Categories: Benign, Possibly Damaging, Probably Damaging
-   - HumVar and HumDiv trained models
-
-3. **CADD (Combined Annotation Dependent Depletion)**:
-
-   - Integrative scoring framework
-   - Phred-scaled scores (higher = more deleterious)
-   - Threshold: 15-20 for pathogenic variants
-
-4. **REVEL (Rare Exome Variant Ensemble Learner)**:
-
-   - Ensemble of 13 individual tools
-   - Score range: 0-1 (higher = more pathogenic)
-   - Optimized for rare missense variants
-
-5. **AlphaMissense**:
-   - AI-based protein structure prediction
-   - Score range: 0-1 (higher = more pathogenic)
-   - State-of-the-art deep learning approach
-
-**Evaluation Metrics**:
-
-- **Sensitivity (Recall)**: True positive rate
-- **Specificity**: True negative rate
-- **Precision**: Positive predictive value
-- **F1-Score**: Harmonic mean of precision and recall
-- **Matthews Correlation Coefficient (MCC)**: Balanced performance metric
-- **Area Under ROC Curve (AUC-ROC)**: Discrimination ability
-- **Area Under Precision-Recall Curve (AUC-PR)**: Performance on imbalanced data
-
-##### Step10-BenchmarkOtherMethodsCategory.py - Category-Specific Analysis
-
-```bash
-python Step10-BenchmarkOtherMethodsCategory.py
-```
-
-**Stratified Performance Analysis**: Evaluates model performance across biological categories.
-
-**Stratification Categories**:
-
-1. **Functional Domain**:
-
-   - DNA-binding domains
-   - Kinase domains
-   - Ion channels
-   - Structural proteins
-
-2. **Gene Function**:
-
-   - Essential genes
-   - Disease genes (OMIM)
-   - Drug targets
-   - Cancer genes (COSMIC)
-
-3. **Evolutionary Conservation**:
-
-   - Highly conserved (PhyloP >2)
-   - Moderately conserved (PhyloP 0-2)
-   - Poorly conserved (PhyloP <0)
-
-4. **Population Frequency**:
-   - Ultra-rare (AF <0.001%)
-   - Rare (AF 0.001-0.1%)
-   - Low frequency (AF 0.1-1%)
-   - Common (AF >1%)
-
-##### Step10-BenchmarkOtherMethodsCategoryPlot.py - Visualization Framework
-
-```bash
-python Step10-BenchmarkOtherMethodsCategoryPlot.py
-```
-
-**Comprehensive Visualization Suite**:
-
-- ROC curves with confidence intervals
-- Precision-recall curves
-- Performance heatmaps across categories
-- Feature importance rankings
-- Calibration plots for probability assessment
-
-#### Specialized Prediction Approaches
-
-##### Step11-JustAlphaMissense.py - AI-Only Baseline
-
-```bash
-python Step11-JustAlphaMissense.py
-```
-
-**Methodology**: Establishes AlphaMissense-only prediction performance as baseline.
-
-**Implementation**:
-
-- Direct threshold application (0.564 optimal threshold)
-- Probability calibration using Platt scaling
-- Performance evaluation on ClinVar test set
-- Comparison with ensemble approach
-
-##### Step12-MergeAlphaMissesnse.py - Cross-Chromosome Integration
-
-```bash
-python Step12-MergeAlphaMissesnse.py
-```
-
-**Data Integration**: Consolidates AlphaMissense predictions across all chromosomes.
-
-**Processing Steps**:
-
-1. Loads chromosome-specific AlphaMissense annotations
-2. Standardizes scoring and confidence metrics
-3. Handles missing predictions and edge cases
-4. Creates genome-wide prediction matrix
-
-### Phase 7: Model Application and Inference
-
-#### Production-Scale Variant Prediction
-
-##### Step13-RunModel.py - Genome-Wide Prediction Engine
-
-```bash
-python Step13-RunModel.py
-```
-
-**Computational Framework**: Applies trained ensemble models to complete genomic dataset.
-
-**Technical Implementation**:
-
-1. **Model Loading**: Deserializes trained XGBoost, feature encoders, and preprocessing pipelines
-2. **Memory Management**: Chunked processing for memory efficiency (50,000 variants per chunk)
-3. **Parallel Processing**: Multi-core CPU utilization for faster inference
-4. **Progress Monitoring**: Real-time processing statistics and ETA estimation
-
-**Processing Pipeline**:
-
-```python
-# Pseudocode for inference pipeline
-for chromosome in chromosomes:
-    # Load chromosome feature data
-    features = load_chromosome_features(chromosome)
-
-    # Apply feature preprocessing
-    features_processed = apply_preprocessing(features)
-
-    # Generate predictions
-    predictions = ensemble_model.predict_proba(features_processed)
-
-    # Apply calibration
-    calibrated_probs = calibration_model.predict_proba(predictions)
-
-    # Generate categorical predictions
-    categorical_preds = apply_thresholds(calibrated_probs)
-
-    # Save results in dbNSFP format
-    save_predictions(chromosome, predictions, categorical_preds)
-```
-
-**Output Format Specification**:
-
-- **Score**: Continuous probability (0.000-1.000)
-- **Standard Deviation**: Prediction uncertainty (0.000-1.000)
-- **Categorical Prediction**: D (Damaging), T (Tolerated), U (Unknown)
-- **Comments**: Method-specific annotations and confidence metrics
-
+ 
 #### Quality Control and Validation
 
 **Inference Quality Checks**:
@@ -2049,12 +1660,7 @@ for chromosome in chromosomes:
 ### Phase 8: Competition Submission and Format Compliance
 
 #### Final Submission Pipeline
-
-##### Step14-GenerateSubmission.py - Competition Format Conversion
-
-```bash
-python Step14-GenerateSubmission.py [model_number]
-```
+ 
 
 **Submission Protocol**: Converts predictions to CAGI (Critical Assessment of Genome Interpretation) format requirements.
 
@@ -2083,20 +1689,7 @@ python Step14-GenerateSubmission.py [model_number]
 - File size and variant count validation
 
 #### Additional Utility Scripts
-
-##### Data Processing Utilities
-
-```bash
-# Test versions for development
-python Step5.0-AppendAAchangestest.py
-python Step5.1-AppendAlphaMissensetest.py
-
-# Command generation for specialized tasks
-python Step5-AppendAlphaMissense-ScrapeCommands.py
-
-# Syntax validation across codebase
-python syntax_check.py
-```
+ 
 
 ##### Advanced Submission Processing
 
@@ -2118,14 +1711,7 @@ python Step6.24-UploadSubmission.py
 - Intermediate files: ~1TB (annotation results)
 - Final predictions: ~50GB (all human missense variants)
 
-**Processing Time Estimates** (on HPC cluster):
-
-- Data preparation: 2-4 hours
-- ANNOVAR annotation: 24-48 hours (parallel)
-- Feature engineering: 8-12 hours
-- Model training: 4-8 hours
-- Inference: 12-24 hours
-- **Total pipeline**: 2-4 days
+ 
 
 **Memory Requirements**:
 
@@ -2317,46 +1903,9 @@ python Step6.24-UploadSubmission.py
 35. **Pedregosa, F., Varoquaux, G., Gramfort, A., et al.** (2011). Scikit-learn: Machine learning in Python. _Journal of Machine Learning Research_, 12, 2825-2830.
     - _Scikit-learn machine learning library_
 
-## Citation Guidelines
-
-### How to Cite This Pipeline
-
-If you use this pipeline in your research, please cite it as:
-
-```bibtex
-@software{genomic_variant_pipeline_2025,
-  title={Comprehensive Genomic Variant Annotation and Pathogenicity Prediction Pipeline},
-  author={[Your Institution/Names]},
-  year={2025},
-  url={[GitHub Repository URL]},
-  note={Integrative machine learning framework for missense variant effect prediction using 35+ genomic databases and ensemble learning approaches}
-}
-```
-
-### Key Methods to Cite in Publications
-
-When publishing results using this pipeline, ensure to cite:
-
-1. **ANNOVAR** [1] - for variant annotation framework
-2. **AlphaMissense** [4] - for AI-based pathogenicity scores
-3. **XGBoost** [6] - for machine learning algorithm
-4. **ClinVar** [3] - for clinical validation data
-5. **dbNSFP** [2] - for comprehensive functional annotations
-6. **gnomAD** [7] - for population frequency data
-
-### Database Version Documentation
-
-Always document the specific database versions used:
-
-```
-dbNSFP: v5.1a (accessed: [date])
-ANNOVAR: 2024Oct24 (downloaded: [date])
-ClinVar: 2024-09-30 (accessed: [date])
-gnomAD: v2.1.1 genomes, v2.1.1 exomes
-AlphaMissense: v2023-10 (downloaded: [date])
-ESM: fair-esm v2021-12
-Reference Genome: GRCh38/hg38
-```
+ 
+ 
+ 
 
 #### Step6.1-ExtractClinvarData-Clinvar.py
 
@@ -2535,6 +2084,14 @@ python Step6.12-FeatureAnalysis-ProcessorEngineering.py
 **Purpose**: Analyzes feature distributions across all datasets
 **Command**: `python Step6.13.1-FeatureAnalysis-DistributionofAllDatasets.py`
 
+**Dataset Distribution Visualization**:
+
+![Final Dataset Distribution](GitHub/Figure5-FinalDatasetDistribution.png)
+_Figure 5: Distribution of pathogenic and benign variants across the final curated dataset. The plot shows class balance after SMOTE oversampling and demonstrates the comprehensive coverage of different variant types used for model training._
+
+![Best Model Feature Distributions](GitHub/Figure6-BestModelFeaturesDistributions.png)
+_Figure 6: Kernel density estimation plots showing the distribution of the top predictive features for pathogenic (red) versus benign (blue) variants. Clear separation in distributions validates the discriminatory power of selected features._
+
 #### Step6.14-FeatureAnalysis-Trainer.py
 
 **Purpose**: Trains XGBoost models with advanced optimization
@@ -2609,532 +2166,7 @@ python Step6.14-FeatureAnalysis-Trainer.py
 
 **Purpose**: Uploads final submissions to competition platform
 **Command**: `python Step6.24-UploadSubmission.py`
-
-### Step 7: ClinVar Analysis and Model Training
-
-#### Step7-ExtractFeatures-Clinvar.py
-
-**Purpose**: Extracts features specifically for ClinVar analysis
-**Command**: `python Step7-ExtractFeatures-Clinvar.py`
-
-#### Step7-ExtractFeatures-ClinvarBackup.py
-
-**Purpose**: Backup version of ClinVar feature extraction
-**Command**: `python Step7-ExtractFeatures-ClinvarBackup.py`
-
-#### Step7-GetClinvarVariants.py
-
-**Purpose**: Retrieves ClinVar variants for analysis
-**Command**: `python Step7-GetClinvarVariants.py`
-
-#### Step7-GetClinvarVariantsPerformanceForAll.py
-
-**Purpose**: Performance evaluation across all ClinVar variants
-**Command**: `python Step7-GetClinvarVariantsPerformanceForAll.py`
-
-#### Step7.1-TrainModel-ClinvarDL.py
-
-**Purpose**: Deep learning model training on ClinVar data
-**Command**: `python Step7.1-TrainModel-ClinvarDL.py`
-
-#### Step7.1-TrainModel-ClinvarDL2ExistingLibraries.py
-
-**Purpose**: Advanced deep learning with existing libraries
-**Command**: `python Step7.1-TrainModel-ClinvarDL2ExistingLibraries.py`
-
-#### Step7.1-TrainModel-ClinvarML.py
-
-**Purpose**: Machine learning model training on ClinVar data
-**Command**: `python Step7.1-TrainModel-ClinvarML.py`
-
-#### Step7.2.py
-
-**Purpose**: Additional ClinVar analysis (Step 7.2)
-**Command**: `python Step7.2.py`
-
-### Step 8: Advanced Machine Learning
-
-#### Step8-MachineLearning.py
-
-**Purpose**: Main machine learning pipeline
-**Command**: `python Step8-MachineLearning.py`
-
-#### Step8-MachineLearning2.py
-
-**Purpose**: Advanced machine learning pipeline (version 2)
-**Command**: `python Step8-MachineLearning2.py`
-
-#### Step8-MachineLearning2-FeatureAnalysis.py
-
-**Purpose**: Feature analysis for ML pipeline v2
-**Command**: `python Step8-MachineLearning2-FeatureAnalysis.py`
-
-#### Step8-MachineLearning2-FeatureAnalysisIncludingLabels.py
-
-**Purpose**: Feature analysis including label information
-**Command**: `python Step8-MachineLearning2-FeatureAnalysisIncludingLabels.py`
-
-### Step 9: Model Optimization and Final Training
-
-#### Step9-RunMachineLearningModel.py
-
-**Purpose**: Main ML model execution
-**Command**: `python Step9-RunMachineLearningModel.py`
-
-#### Step9-RunMachineLearningModel-WithoutClinVar.py
-
-**Purpose**: ML model execution excluding ClinVar data
-**Command**: `python Step9-RunMachineLearningModel-WithoutClinVar.py`
-
-#### Step9-RunMachineLearningModel-WithoutAnyModel.py
-
-**Purpose**: ML execution without pre-trained models
-**Command**: `python Step9-RunMachineLearningModel-WithoutAnyModel.py`
-
-#### Step9.1-Final.py
-
-**Purpose**: Final model version 9.1
-**Command**: `python Step9.1-Final.py`
-
-#### Step9.2-Final.py
-
-**Purpose**: Final model version 9.2
-**Command**: `python Step9.2-Final.py`
-
-#### Step9.2-FinalCalibration.py
-
-**Purpose**: Model calibration for final version 9.2
-**Command**: `python Step9.2-FinalCalibration.py`
-
-#### Step9.2-FinalRetrain.py
-
-**Purpose**: Retraining for final model 9.2
-**Command**: `python Step9.2-FinalRetrain.py`
-
-#### Step9.2-FinalRetrain-Optimized.py
-
-**Purpose**: Optimized retraining for final model 9.2
-**Command**: `python Step9.2-FinalRetrain-Optimized.py`
-
-#### Step9.2.0-FinalCorrelation.py
-
-**Purpose**: Correlation analysis for final model
-**Command**: `python Step9.2.0-FinalCorrelation.py`
-
-#### Step9.2.1-ClinvarThresholdOptimization.py
-
-**Purpose**: Optimizes thresholds using ClinVar data
-**Command**: `python Step9.2.1-ClinvarThresholdOptimization.py`
-
-#### Step9.2.1-FinalGenerateSubmission.py
-
-**Purpose**: Generates final submission files
-**Command**: `python Step9.2.1-FinalGenerateSubmission.py`
-
-#### Step9.2.1-ThresholdOptimization.py
-
-**Purpose**: General threshold optimization
-**Command**: `python Step9.2.1-ThresholdOptimization.py`
-
-#### Step9.3-Final.py through Step9.6-Final.py
-
-**Purpose**: Final model versions 9.3 through 9.6
-**Commands**:
-
-```bash
-python Step9.3-Final.py
-python Step9.4-Final.py
-python Step9.5-Final.py
-python Step9.6-Final.py
-```
-
-### Step 10: Benchmarking
-
-#### Step10-BenchmarkOtherMethods.py
-
-**Purpose**: Benchmarks against other variant prediction methods
-**Command**: `python Step10-BenchmarkOtherMethods.py`
-
-#### Step10-BenchmarkOtherMethodsCategory.py
-
-**Purpose**: Category-wise benchmarking of other methods
-**Command**: `python Step10-BenchmarkOtherMethodsCategory.py`
-
-#### Step10-BenchmarkOtherMethodsCategoryPlot.py
-
-**Purpose**: Visualization of category-wise benchmarking results
-**Command**: `python Step10-BenchmarkOtherMethodsCategoryPlot.py`
-
-### Step 11-12: AlphaMissense Integration
-
-#### Step11-JustAlphaMissense.py
-
-**Purpose**: Creates predictions using only AlphaMissense scores
-**Command**: `python Step11-JustAlphaMissense.py`
-
-#### Step12-MergeAlphaMissesnse.py
-
-**Purpose**: Merges AlphaMissense predictions across chromosomes
-**Command**: `python Step12-MergeAlphaMissesnse.py`
-
-### Step 13: Model Application
-
-#### Step13-RunModel.py
-
-**Purpose**: Applies trained models to all chromosome data
-**What it does**:
-
-- Loads saved XGBoost models
-- Processes all chromosome feature files
-- Generates predictions in dbNSFP format
-- Parallel processing for efficiency
-
-**Command**:
-
-```bash
-python Step13-RunModel.py
-```
-
-### Step 14: Generate Final Submission
-
-#### Step14-GenerateSubmission.py
-
-**Purpose**: Creates final submission files matching CAGI template format
-**What it does**:
-
-- Matches predictions with submission template
-- Preserves original variant ordering
-- Generates final submission files per chromosome
-
-**Command**:
-
-```bash
-python Step14-GenerateSubmission.py [model_number]
-```
-
-### Additional Scripts and Utilities
-
-#### Step5-AppendAlphaMissense-ScrapeCommands.py
-
-**Purpose**: Generates commands for scraping AlphaMissense data
-**Command**: `python Step5-AppendAlphaMissense-ScrapeCommands.py`
-
-#### Step5.0-AppendAAchangestest.py
-
-**Purpose**: Test version of amino acid changes appender
-**Command**: `python Step5.0-AppendAAchangestest.py`
-
-#### Step5.1-AppendAlphaMissensetest.py
-
-**Purpose**: Test version of AlphaMissense appender
-**Command**: `python Step5.1-AppendAlphaMissensetest.py`
-
-#### syntax_check.py
-
-**Purpose**: Validates Python syntax across all files
-**Command**: `python syntax_check.py`
-
-### Configuration Files
-
-#### Step6.11-FeatureAnalysis-Processor.json
-
-**Purpose**: Configuration file for feature analysis processor
-**Contains**: Feature selection rules, encoding parameters, and processing settings
-
-#### Step6.11-FeatureAnalysis-ProcessorImportantFile.json
-
-**Purpose**: Important feature configuration for processor
-**Contains**: Critical feature definitions and importance weights
-
-#### Step3-commands.txt
-
-**Purpose**: Generated ANNOVAR commands for parallel execution
-**Contains**: All ANNOVAR annotation commands for SLURM array jobs
-
-#### SYNAPSE_METADATA_MANIFEST.tsv
-
-**Purpose**: Metadata manifest for Synapse platform submission
-**Contains**: File descriptions and metadata for competition submission
-
-## Typical Workflow
-
-### Phase 1: Data Preparation and Annotation
-
-1. **Prepare data**: Run Step1 scripts to convert dbNSFP files
-2. **Generate commands**: Run Step2 to create ANNOVAR annotation commands
-3. **Execute annotations**: Submit Step3 SLURM job for parallel processing
-4. **Merge results**: Run Step4 to combine annotation files per chromosome
-5. **Add features**: Run Step5 scripts to append additional prediction scores
-
-### Phase 2: Feature Engineering and Analysis
-
-6. **Extract training data**: Run Step6.1-6.2 to prepare ClinVar data
-7. **Feature analysis**: Run Step6-6.15 for comprehensive feature analysis
-8. **Feature engineering**: Run Step6.3 and Step6.12 for feature processing
-9. **Advanced analysis**: Run Step6.16-6.24 for specialized processing
-
-### Phase 3: Model Development and Training
-
-10. **ClinVar analysis**: Run Step7 scripts for ClinVar-specific modeling
-11. **Advanced ML**: Run Step8 scripts for sophisticated machine learning
-12. **Model optimization**: Run Step9 scripts for final model versions
-
-### Phase 4: Evaluation and Submission
-
-13. **Benchmarking**: Run Step10 scripts to compare with other methods
-14. **Final integration**: Run Step11-12 for AlphaMissense integration
-15. **Generate predictions**: Run Step13 to apply models to all data
-16. **Create submission**: Run Step14 to format final results
-
-## Comprehensive Workflow Guide
-
-### Complete Pipeline Execution (Recommended)
-
-```bash
-# Phase 1: Data Preparation (2-4 hours)
-python Step1-UnzipFile.py
-python Step1-BasicMethodForMissensePrediction.py  # Optional baseline
-
-# Phase 2: Annotation Command Generation (5 minutes)
-python Step2-AnnovarExecution.py
-
-# Phase 3: Parallel Annotation Execution (24-48 hours)
-sbatch Step3-Data.sh  # Submit SLURM array job
-
-# Wait for annotation completion, then proceed
-
-# Phase 4: Data Consolidation (4-8 hours)
-# Submit array job for all chromosomes (1-25)
-for chr in {1..25}; do
-    sbatch --array=$chr Step4-MergeFiles.py
-done
-
-# Phase 5: Feature Integration (8-12 hours)
-# Process each chromosome with additional annotations
-for chr in {1..25}; do
-    python Step5.0-AppendAAchanges.py $chr
-    python Step5.1-AppendAlphaMissense.py $chr
-    python Step5.3-AppendESMPredictions.py $chr
-done
-
-# Phase 6: Machine Learning Pipeline (4-8 hours)
-# Feature analysis and model training
-python Step6.1-ExtractClinvarData-Clinvar.py
-python Step6.2-ExtractClinvarData-MakeFolds.py
-python Step6.11-FeatureAnalysis-Processor.py discover
-python Step6.11-FeatureAnalysis-Processor.py process
-python Step6.12-FeatureAnalysis-ProcessorEngineering.py
-python Step6.14-FeatureAnalysis-Trainer.py
-
-# Phase 7: Model Application (12-24 hours)
-python Step13-RunModel.py
-
-# Phase 8: Submission Generation (30 minutes)
-python Step14-GenerateSubmission.py 1
-```
-
-### Alternative Workflows
-
-#### Quick AlphaMissense-Only Pipeline
-
-For rapid prototyping or AlphaMissense baseline comparison:
-
-```bash
-python Step1-UnzipFile.py
-python Step11-JustAlphaMissense.py
-python Step12-MergeAlphaMissesnse.py
-```
-
-#### ClinVar-Focused Analysis Pipeline
-
-For clinical variant analysis and method development:
-
-```bash
-python Step7-GetClinvarVariants.py
-python Step7.1-TrainModel-ClinvarML.py
-python Step7.1-TrainModel-ClinvarDL.py
-python Step7-GetClinvarVariantsPerformanceForAll.py
-```
-
-#### Advanced Feature Engineering Pipeline
-
-For comprehensive feature analysis and optimization:
-
-```bash
-python Step6-FeatureAnalysis-Clinvar.py
-python Step6.10-FeatureAnalysis-AnalysisOfAllFeatures.py
-python Step6.15-FeatureAnalysis-PCAAnalysis.py
-python Step6.16-FeatureAnalysis-TrainerModels.py
-```
-
-#### Benchmarking and Evaluation Pipeline
-
-For method comparison and performance assessment:
-
-```bash
-python Step10-BenchmarkOtherMethods.py
-python Step10-BenchmarkOtherMethodsCategory.py
-python Step10-BenchmarkOtherMethodsCategoryPlot.py
-```
-
-### Development and Testing Workflows
-
-#### Code Validation
-
-```bash
-# Syntax checking across all files
-python syntax_check.py
-
-# Test versions of critical components
-python Step5.0-AppendAAchangestest.py
-python Step5.1-AppendAlphaMissensetest.py
-```
-
-#### Single Chromosome Testing
-
-For development and debugging, process only chromosome 22 (smallest):
-
-```bash
-python Step1-UnzipFile.py
-python Step2-AnnovarExecution.py
-# Run only chr22 commands from commands.txt
-python Step4-MergeFiles.py 22
-python Step5.0-AppendAAchanges.py 22
-python Step5.1-AppendAlphaMissense.py 22
-python Step13-RunModel.py  # Will process only available chromosomes
-```
-
-## Troubleshooting Guide
-
-### Common Installation Issues
-
-#### ANNOVAR Database Download Failures
-
-```bash
-# Problem: Download interruption or corruption
-# Solution: Resume interrupted downloads
-perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refGene humandb/ --resume
-
-# Problem: Insufficient disk space
-# Solution: Check available space and clean temp files
-df -h
-rm -rf /tmp/annovar_*
-```
-
-#### Memory Issues During Processing
-
-```bash
-# Problem: Out of memory errors
-# Solution: Reduce chunk size in configuration
-# Edit Step6.11-FeatureAnalysis-Processor.json:
-{
-    "performance": {
-        "chunk_size": 25000,  # Reduce from default 50000
-        "memory_limit_gb": 4  # Adjust based on available RAM
-    }
-}
-```
-
-#### Missing Dependencies
-
-```bash
-# Problem: ImportError for required packages
-# Solution: Install missing dependencies
-pip install polars pandas numpy scikit-learn xgboost matplotlib seaborn tqdm
-pip install imbalanced-learn torch tensorflow
-
-# For bioinformatics tools
-conda install -c bioconda annovar
-```
-
-### Performance Optimization
-
-#### SLURM Job Optimization
-
-```bash
-# For large chromosomes (1, 2, 3), increase memory:
-#SBATCH --mem=100G
-
-# For many small jobs, use job arrays:
-#SBATCH --array=1-25%5  # Limit to 5 concurrent jobs
-
-# Monitor job progress:
-squeue -u $USER
-sacct -j JOBID --format=JobID,JobName,MaxRSS,Elapsed,State
-```
-
-#### Storage Management
-
-```bash
-# Monitor disk usage
-du -sh * | sort -hr
-
-# Clean intermediate files after successful completion
-rm -rf Annovar_Output_Files/  # After Step4 completion
-rm -rf temp_*/  # After each processing step
-
-# Compress large files
-gzip *.csv  # Compress CSV files not actively used
-```
-
-### Data Validation
-
-#### Coordinate System Verification
-
-```bash
-# Verify hg38 coordinates
-python -c "
-import pandas as pd
-df = pd.read_csv('AnnovarInputFiles/chr1.annovar_input', sep='\t')
-print(f'Chromosome range: {df.iloc[:, 1].min()}-{df.iloc[:, 1].max()}')
-print(f'Total variants: {len(df)}')
-"
-```
-
-#### Feature Matrix Validation
-
-```bash
-# Check feature completeness
-python -c "
-import pandas as pd
-df = pd.read_csv('Final_Results/chr1_features_engineered.csv')
-print(f'Features: {df.shape[1]}, Variants: {df.shape[0]}')
-print(f'Missing values: {df.isnull().sum().sum()}')
-"
-```
-
-### Error Recovery Strategies
-
-#### Partial Processing Recovery
-
-If processing fails partway through:
-
-```bash
-# Check which chromosomes completed successfully
-ls Final_Results/chr*_features_engineered.csv
-
-# Resume from specific chromosome
-python Step5.0-AppendAAchanges.py 15  # Resume from chromosome 15
-
-# Skip completed files (modify scripts to check for existing output)
-```
-
-#### Model Training Recovery
-
-```bash
-# If training fails, check intermediate results
-ls Models/  # Check for partially saved models
-
-# Resume feature engineering from specific step
-python Step6.12-FeatureAnalysis-ProcessorEngineering.py --resume
-
-# Use checkpointing for long-running jobs
-python Step6.14-FeatureAnalysis-Trainer.py --checkpoint-dir checkpoints/
-```
-
-## File Organization and Management
-
-### Production Directory Structure
+ 
 
 ```
 AnnotationChallenge/
@@ -3156,138 +2188,85 @@ AnnotationChallenge/
 ├── logs/                     # Processing logs (1GB)
 └── temp/                     # Temporary files (variable)
 ```
-
-### Backup and Version Control Strategy
-
-```bash
-# Critical files to backup
-tar -czf backup_$(date +%Y%m%d).tar.gz \
-    GitHub/ Models/ Final_Results/ \
-    Step6.11-FeatureAnalysis-Processor.json
-
-# Version control for code
-git init
-git add GitHub/*.py
-git commit -m "Initial pipeline version"
-
-# Database version tracking
-echo "dbNSFP: 5.1a" > database_versions.txt
-echo "ANNOVAR: $(date)" >> database_versions.txt
-```
-
-## Performance Benchmarks and Expected Results
-
-### Typical Performance Metrics
-
-Based on ClinVar validation set (n=50,000 variants):
-
-| Metric      | Expected Range | Interpretation                  |
-| ----------- | -------------- | ------------------------------- |
-| AUC-ROC     | 0.85-0.92      | Excellent discrimination        |
-| AUC-PR      | 0.70-0.85      | Good precision-recall balance   |
-| MCC         | 0.65-0.78      | Strong correlation with truth   |
-| Sensitivity | 0.80-0.90      | Good pathogenic detection       |
-| Specificity | 0.85-0.95      | Excellent benign classification |
-
-### Comparison with Established Methods
-
-| Method            | AUC-ROC  | AUC-PR   | MCC      |
-| ----------------- | -------- | -------- | -------- |
-| **This Pipeline** | **0.89** | **0.78** | **0.72** |
-| AlphaMissense     | 0.87     | 0.75     | 0.69     |
-| REVEL             | 0.84     | 0.71     | 0.65     |
-| CADD              | 0.82     | 0.68     | 0.62     |
-| PolyPhen-2        | 0.79     | 0.63     | 0.58     |
-| SIFT              | 0.76     | 0.59     | 0.54     |
-
-_Results may vary based on specific test sets and evaluation criteria_
-
+ 
+ 
 ## Conclusion
 
-This comprehensive pipeline represents a state-of-the-art approach to genomic variant pathogenicity prediction, integrating multiple databases, sophisticated feature engineering, and advanced machine learning techniques. The modular design allows for flexible execution and customization based on specific research needs or computational constraints.
+##### This comprehensive genomic variant annotation pipeline represents an approach to variant pathogenicity prediction, integrating 35+ databases with advanced machine learning. 
+---
 
-The scientific methodology follows established best practices in genomics and machine learning, with careful attention to avoiding data leakage, ensuring robust validation, and providing interpretable results suitable for clinical and research applications.
+## 🌟 Star History
 
-## File Organization
+[![Star History Chart](https://api.star-history.com/svg?repos=MuhammadMuneeb007/CAGI7_Annotate_All_Missense&type=Date)](https://star-history.com/#MuhammadMuneeb007/CAGI7_Annotate_All_Missense&Date)
+ 
+---
 
-### Input Directories
+## 🤝 Contributing
 
-- `AnnovarInputFiles/`: Converted input files for ANNOVAR
-- `dbNSFP5.1_nsSNV.chr*.gz`: Original compressed variant files
+Contributions are welcome!  
+ 
 
-### Processing Directories
+### Areas for Contribution
 
-- `Annovar_Output_Files/`: Raw ANNOVAR annotation results
-- `Annovar_Merge/`: Merged annotation files per chromosome
-- `Feature_Analysis/`: Feature analysis reports and visualizations
+- **Database Integration**: Add support for new annotation databases
+- **Machine Learning Models**: Implement additional algorithms or ensemble methods
+- **Feature Engineering**: Develop novel genomic features
+ 
 
-### Output Directories
+---
 
-- `Final_Results/`: Feature-engineered data ready for ML
-- `Models/`: Trained model files (.pkl, .joblib)
-- `Submissions/`: Final prediction files for competition
-- `ClinVar_Data/`: ClinVar training and validation datasets
+## 📄 License
 
-### Configuration Files
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-- `Step6.11-FeatureAnalysis-Processor.json`: Feature processing configuration
-- `Step3-commands.txt`: Generated ANNOVAR commands
-- `SYNAPSE_METADATA_MANIFEST.tsv`: Competition submission metadata
+---
 
-### Log and Temporary Files
+## 🙏 Acknowledgments
 
-- `*.out`, `*.err`: SLURM job output and error logs
-- `temp/`: Temporary processing files
+- **CAGI Organizers**: For providing the evaluation framework and challenge structure
+- **ANNOVAR Team**: For the comprehensive annotation framework
+- **Database Providers**: ClinVar, gnomAD, dbNSFP, AlphaMissense, ESM, and all other database maintainers
+- **Open Source Community**: For the tools and libraries that made this work possible
+- **BioSig Lab**: For computational resources and research support
+- **The University of Queensland**: For academic support and infrastructure
 
-## Notes
+---
 
-- Scripts support both local execution and SLURM cluster processing
-- Memory-efficient processing using Polars for large datasets
-- Comprehensive error handling and progress tracking
-- Modular design allows running individual steps as needed
-- Configuration files (JSON) store processing parameters
+ 
 
-## Dependencies Installation
+## 📚 Citation
 
-### Core Python Packages
+If you use this pipeline in your research, please cite:
 
-```bash
-pip install pandas polars numpy scikit-learn xgboost matplotlib seaborn tqdm
+```bibtex
+@article{muneeb2025variant,
+  author = {Muneeb, Muhammad and Ascher, David},
+  title = {Comprehensive Genomic Variant Annotation and Pathogenicity Prediction Pipeline},
+  year = {2025},
+  publisher = {GitHub},
+  url = {https://github.com/MuhammadMuneeb007/CAGI7_Annotate_All_Missense}
+}
 ```
 
-### Additional ML/DL Packages
+---
 
-```bash
-pip install torch tensorflow keras imbalanced-learn
-```
+<div align="center">
 
-### Bioinformatics and Utilities
+**Made with ❤️ for Genomic Medicine**
+ 
+</div>
 
-```bash
-pip install requests pathlib argparse subprocess concurrent.futures
-```
 
-### Development and Analysis
+## 👨‍💼 Author Information
 
-```bash
-pip install jupyter notebook ipykernel pytest warnings gc psutil
-```
+- **Name**: Muhammad Muneeb
+- **Affiliation**: The University of Queensland, Australia
+- **Email**: [m.muneeb@uq.edu.au](mailto:m.muneeb@uq.edu.au)
+- **Gmail**: [muneebsiddique007@gmail.com](mailto:muneebsiddique007@gmail.com)
+- **GitHub**: [MuhammadMuneeb007](https://github.com/MuhammadMuneeb007/)
+- **Google Scholar**: [Profile](https://scholar.google.com/citations?hl=en&user=X0xdltIAAAAJ&view_op=list_works&sortby=pubdate)
+- **ResearchGate**: [Profile](https://www.researchgate.net/profile/Muhammad-Muneeb-5)
+- **Supervisor**: [Prof. David Ascher](https://scmb.uq.edu.au/profile/8654/david-ascher)
+- **Lab**: [BioSig Lab](https://biosig.lab.uq.edu.au/)
 
-### For SLURM Environments
-
-Ensure proper module loading and resource allocation based on chromosome size and processing requirements:
-
-```bash
-module load python/3.8
-module load gcc/9.3.0
-module load cuda/11.2  # if using GPU acceleration
-```
-
-### External Tools Required
-
-- **ANNOVAR**: Download and install from Wang Lab
-- **ripgrep**: For fast text searching in Step5.3
-- **dbNSFP database**: Version 5.1 or higher
-- **AlphaMissense database**: Google DeepMind predictions
-- **ESM predictions**: Meta/Facebook protein language model scores
-
+---
