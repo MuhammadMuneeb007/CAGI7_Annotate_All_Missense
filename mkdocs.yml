@@ -1,0 +1,64 @@
+site_name: AnnotateMissense
+site_description: Precomputed GRCh38 missense pathogenicity scores — web server, REST API, VCF annotation, DuckDB database and research pipeline.
+site_url: https://muhammadmuneeb007.github.io/AnnotateMissense/
+repo_url: https://github.com/MuhammadMuneeb007/AnnotateMissense
+repo_name: AnnotateMissense
+edit_uri: edit/main/docs/
+copyright: Muhammad Muneeb and David B. Ascher · Data doi:10.5281/zenodo.19981867
+
+exclude_docs: |
+  _snippets/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle: {icon: material/weather-sunny, name: Light mode}
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.tabs.link
+    - search.highlight
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Using AnnotateMissense:
+      - Quick start: quickstart.md
+      - Web server: server.md
+      - REST API: api.md
+      - Annotating a VCF: vcf.md
+      - Command line: cli.md
+  - The resource:
+      - Database and schema: database.md
+      - Transcripts and alleles: transcripts.md
+      - Requirements and runtime: requirements.md
+      - Licensing and data use: licensing.md
+      - Naming and releases: naming.md
+  - Project:
+      - Research pipeline: pipeline.md
+      - Security: security.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: {permalink: true}
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed: {alternate_style: true}
+  - pymdownx.highlight: {anchor_linenums: false}
+  - pymdownx.inlinehilite
+  - pymdownx.snippets: {base_path: [docs/_snippets], check_paths: true}

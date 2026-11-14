@@ -1,48 +1,41 @@
-# AnnotateMissense — precomputed missense-variant lookup and research pipeline
+# AnnotateMissense
 
-**AnnotateMissense** provides precomputed GRCh38/hg38 missense-variant pathogenicity scores and annotations. **The published end-user resource is a lookup database; it does not currently score arbitrary new VCF input or provide a hosted clinical API.**
+**AnnotateMissense** provides precomputed GRCh38 pathogenicity scores and 337 annotation columns for 90,643,830 missense variants. You can use it through a **web server**, a **REST API**, **VCF annotation** (web, API or offline CLI), or the **DuckDB database** directly. This repository holds the research pipeline that built the resource.
 
-**[Online documentation (GitHub Pages)](https://muhammadmuneeb007.github.io/AnnotateMissense/)** · **[User documentation](docs/README.md)** · [Quick start](docs/QUICKSTART.md) · [Database/schema and SQL](docs/DATABASE.md) · [Transcript provenance](docs/TRANSCRIPTS.md) · [Installation/resources](docs/REPRODUCIBILITY.md) · [Licensing](docs/LICENSING.md) · [Zenodo/repository naming](docs/RELEASE.md)
+**📖 Documentation: <https://muhammadmuneeb007.github.io/AnnotateMissense/>**
 
-**Data:** [Zenodo DOI:10.5281/zenodo.19981867](https://doi.org/10.5281/zenodo.19981867), version 1.0.0. Files: `variants.duckdb.gz` (20.8 GB compressed) and `UQ_BioSig_model_Final.tsv.gz` (1.4 GB compressed). `UQ_BioSig_model_Final.tsv.gz` is a **historical file name**, not a separate product.
+| | |
+|---|---|
+| Web server, REST API, CLI | [AnnotateMissense-Server](https://github.com/MuhammadMuneeb007/AnnotateMissense-Server) |
+| Data (v1.0.0) | [doi:10.5281/zenodo.19981867](https://doi.org/10.5281/zenodo.19981867): `variants.duckdb.gz` (20.8 GB), `UQ_BioSig_model_Final.tsv.gz` (1.4 GB, the AnnotateMissense prediction table under its historical name) |
+| Quick start | [Quick start](https://muhammadmuneeb007.github.io/AnnotateMissense/quickstart/) · [Annotate a VCF](https://muhammadmuneeb007.github.io/AnnotateMissense/vcf/) · [REST API](https://muhammadmuneeb007.github.io/AnnotateMissense/api/) |
+| The resource | [Database & schema](https://muhammadmuneeb007.github.io/AnnotateMissense/database/) · [Transcripts](https://muhammadmuneeb007.github.io/AnnotateMissense/transcripts/) · [Requirements](https://muhammadmuneeb007.github.io/AnnotateMissense/requirements/) · [Licensing](https://muhammadmuneeb007.github.io/AnnotateMissense/licensing/) · [Naming](https://muhammadmuneeb007.github.io/AnnotateMissense/naming/) |
 
-**Licence notice:** Zenodo metadata currently labels the *dataset deposit* CC BY 4.0; separate ANNOVAR/dbNSFP component and redistribution permissions still require verification. The older README's MIT claim was unsubstantiated by a root LICENSE file; see [licensing details](docs/LICENSING.md). Predictions are for research prioritisation and must not be used as standalone clinical classifications.
+```bash
+pip install "git+https://github.com/MuhammadMuneeb007/AnnotateMissense-Server"
+annotatemissense annotate-vcf my.vcf.gz -o my.annotatemissense.vcf --db variants.duckdb   # offline, GRCh38
+```
 
----
+AnnotateMissense is a **precomputed lookup**: it scores GRCh38 single-nucleotide alleles in the release and does not re-run the model on new alleles. The deposit is CC BY 4.0, but it embeds third-party annotations that keep their own terms, some of them non-commercial ([Licensing](https://muhammadmuneeb007.github.io/AnnotateMissense/licensing/)). Scores are for research prioritisation, not standalone clinical classification.
 
 ## Documentation website and access commands
 
-**Online documentation:** https://muhammadmuneeb007.github.io/AnnotateMissense/
-
-**Source documentation (always available):** https://github.com/MuhammadMuneeb007/AnnotateMissense/tree/main/docs
-
-The website is published from GitHub Pages when the repository owner selects **Settings → Pages → Deploy from a branch → `main` → `/docs` → Save**. Until the first deployment succeeds, the Pages link may return 404. The documentation homepage is [`docs/index.md`](docs/index.md).
-
-**Open the online documentation from a terminal** (requires Python and a web browser):
+- **Online documentation:** <https://muhammadmuneeb007.github.io/AnnotateMissense/> (built from `docs/` with MkDocs by `.github/workflows/docs.yml` on every push to `main`)
+- **Source documentation:** [`docs/`](docs/) (Markdown; start at [`docs/index.md`](docs/index.md))
 
 ```bash
+# open the documentation
 python -m webbrowser -t 'https://muhammadmuneeb007.github.io/AnnotateMissense/'
-```
 
-**Download and read the documentation locally:**
+# build and preview it locally
+pip install "mkdocs-material>=9.5,<10"
+mkdocs serve            # http://127.0.0.1:8000
 
-```bash
-git clone https://github.com/MuhammadMuneeb007/AnnotateMissense.git
-cd AnnotateMissense
-cat docs/QUICKSTART.md
-cat docs/DATABASE.md
-cat docs/TRANSCRIPTS.md
-```
-
-**Access the released lookup database** (first download `variants.duckdb.gz` from [Zenodo](https://doi.org/10.5281/zenodo.19981867); allow sufficient disk space for the much larger decompressed database):
-
-```bash
+# inspect a downloaded release database (read-only)
 gzip -dk variants.duckdb.gz
-python -m pip install duckdb
+python -m pip install "duckdb>=1.4.3"
 python Step7-InspectAnnotateMissenseDatabase.py variants.duckdb
 ```
-
-This is a **precomputed variant lookup**, not a command to score new variants or arbitrary VCF files. Schema inspection is read-only; see [the quick start](docs/QUICKSTART.md) for the SQL lookup template and [database documentation](docs/DATABASE.md) for caveats.
 
 ---
 
@@ -2248,7 +2241,7 @@ AnnotationChallenge/
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MuhammadMuneeb007/CAGI7_Annotate_All_Missense&type=Date)](https://star-history.com/#MuhammadMuneeb007/CAGI7_Annotate_All_Missense&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=MuhammadMuneeb007/AnnotateMissense&type=Date)](https://star-history.com/#MuhammadMuneeb007/AnnotateMissense&Date)
  
 ---
 
@@ -2268,7 +2261,7 @@ Contributions are welcome!
 
 ## 📄 License
 
-Dataset deposit is listed on Zenodo as CC BY 4.0, subject to verification of upstream permissions. The code licence has not been confirmed by a root LICENSE file. See [Licensing](docs/LICENSING.md).
+Dataset deposit is listed on Zenodo as CC BY 4.0, subject to verification of upstream permissions. The code licence has not been confirmed by a root LICENSE file. See [Licensing](https://muhammadmuneeb007.github.io/AnnotateMissense/licensing/).
 
 ---
 
