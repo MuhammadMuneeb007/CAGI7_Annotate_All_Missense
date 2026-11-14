@@ -1,8 +1,23 @@
+# AnnotateMissense — precomputed missense-variant lookup and research pipeline
+
+**AnnotateMissense** provides precomputed GRCh38/hg38 missense-variant pathogenicity scores and annotations. **The published end-user resource is a lookup database; it does not currently score arbitrary new VCF input or provide a hosted clinical API.**
+
+**[User documentation](docs/README.md)** · [Quick start](docs/QUICKSTART.md) · [Database/schema and SQL](docs/DATABASE.md) · [Transcript provenance](docs/TRANSCRIPTS.md) · [Installation/resources](docs/REPRODUCIBILITY.md) · [Licensing](docs/LICENSING.md) · [Zenodo/repository naming](docs/RELEASE.md)
+
+**Data:** [Zenodo DOI:10.5281/zenodo.19981867](https://doi.org/10.5281/zenodo.19981867), version 1.0.0. Files: `variants.duckdb.gz` (20.8 GB compressed) and `UQ_BioSig_model_Final.tsv.gz` (1.4 GB compressed). `UQ_BioSig_model_Final.tsv.gz` is a **historical file name**, not a separate product.
+
+**Licence notice:** Zenodo metadata currently labels the *dataset deposit* CC BY 4.0; separate ANNOVAR/dbNSFP component and redistribution permissions still require verification. The older README's MIT claim was unsubstantiated by a root LICENSE file; see [licensing details](docs/LICENSING.md). Predictions are for research prioritisation and must not be used as standalone clinical classifications.
+
+---
+
+## Research pipeline (developer/reproduction reference)
+
+The material below documents the underlying research-generation workflow and its considerably heavier dependencies. Lookup users should start with the links above instead.
+
 # Comprehensive Genomic Variant Annotation and Pathogenicity Prediction Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)
 ![Machine Learning](https://img.shields.io/badge/ML-XGBoost-orange.svg?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 ![Bioinformatics](https://img.shields.io/badge/Bioinformatics-Genomics-blueviolet.svg?style=for-the-badge&logo=dna&logoColor=white)
 
 <!-- Share Buttons -->
@@ -2217,7 +2232,7 @@ Contributions are welcome!
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Dataset deposit is listed on Zenodo as CC BY 4.0, subject to verification of upstream permissions. The code licence has not been confirmed by a root LICENSE file. See [Licensing](docs/LICENSING.md).
 
 ---
 
