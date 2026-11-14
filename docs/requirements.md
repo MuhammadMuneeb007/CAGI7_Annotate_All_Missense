@@ -5,7 +5,7 @@ What you need depends on what you do. Using the precomputed scores needs **no** 
 | Use | Software | Storage | Hardware | Typical runtime |
 |---|---|---|---|---|
 | **Web server / REST API** | browser or `curl` | none | any | ~0.1 s per lookup server-side |
-| **Local lookup / offline VCF annotation** | Python ≥ 3.9, `duckdb ≥ 1.4.3` | 20.8 GB download; ≈50–55 GB extracted (estimate) | laptop or desktop; 8–16 GB RAM suggested | 100,000 VCF alleles in ~11 s (measured on chr22) |
+| **Local lookup / offline VCF annotation** | Python ≥ 3.10, `duckdb ≥ 1.4.3` | 20.8 GB download; ≈50–55 GB extracted (estimate) | laptop or desktop; 8–16 GB RAM suggested | 100,000 VCF alleles in ~11 s (measured on chr22) |
 | **Light score lookup** | as above | 1.4 GB TSV + score index | laptop | not benchmarked |
 | **Self-hosted server** | above + Flask, flask-cors, flask-limiter, waitress/gunicorn (or Docker) | as local lookup | 2+ cores, 8–16 GB RAM suggested | as above |
 | **Full genome-wide rebuild** | see below | ~500 GB raw + ~1 TB intermediate | HPC/SLURM, 50–128 GB RAM per job | days (see below) |
@@ -19,7 +19,7 @@ git clone https://github.com/MuhammadMuneeb007/AnnotateMissense-Server && cd Ann
 pip install -r requirements.txt && pip install -e .
 ```
 
-`requirements.txt` pins `duckdb>=1.4.3,<2`, `flask>=3.0,<4`, `flask-cors>=4.0`, `flask-limiter>=3.7`, `waitress>=3.0` and `gunicorn>=22` (Linux). The test suite (`pytest`) runs on a 146-row extract in a few seconds, and CI runs it on Python 3.9 and 3.12.
+`requirements.txt` pins `duckdb>=1.4.3,<2`, `flask>=3.0,<4`, `flask-cors>=4.0`, `flask-limiter>=3.7`, `waitress>=3.0` and `gunicorn>=22` (Linux). The test suite (`pytest`) runs on a 146-row extract in a few seconds, and CI runs it on Python 3.10 and 3.13.
 
 Docker alternative: `docker compose up -d --build` (Python 3.11-slim image, nginx in front).
 

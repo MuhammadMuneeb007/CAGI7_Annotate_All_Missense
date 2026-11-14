@@ -1,6 +1,6 @@
 # Command line
 
-The `annotatemissense` command ships with the [server repository](https://github.com/MuhammadMuneeb007/AnnotateMissense-Server). Its core needs only Python ≥ 3.9 and `duckdb`.
+The `annotatemissense` command ships with the [server repository](https://github.com/MuhammadMuneeb007/AnnotateMissense-Server). Its core needs only Python ≥ 3.10 and `duckdb`.
 
 ```bash
 pip install "git+https://github.com/MuhammadMuneeb007/AnnotateMissense-Server"

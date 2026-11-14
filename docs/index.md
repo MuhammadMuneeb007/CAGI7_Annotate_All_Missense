@@ -11,7 +11,7 @@ AnnotateMissense integrates ANNOVAR gene/region/filter annotations, dbNSFP trans
 | I want to… | Use | Needs |
 |---|---|---|
 | Check one variant or a short list | [Web server](server.md) | a browser |
-| Annotate my VCF and get a VCF back | [Annotate VCF page or API](vcf.md), or the [offline CLI](cli.md) | browser / `curl` / Python ≥ 3.9 |
+| Annotate my VCF and get a VCF back | [Annotate VCF page or API](vcf.md), or the [offline CLI](cli.md) | browser / `curl` / Python ≥ 3.10 |
 | Query programmatically from Python, R or a pipeline | [REST API](api.md) | `curl` or any HTTP client |
 | Run genome-wide queries or join with my own tables | [DuckDB database](database.md) | 20.8 GB download, DuckDB ≥ 1.4.3 |
 | Host my own server (e.g. for clinical-research data that cannot leave the institution) | [Self-hosting](server.md#self-hosting) | Python or Docker, the database |
@@ -25,7 +25,7 @@ AnnotateMissense integrates ANNOVAR gene/region/filter annotations, dbNSFP trans
 | Question | Short answer | Details |
 |---|---|---|
 | Can it score my VCF? | Yes, by lookup. Upload in the browser (≤10,000 ALT alleles), `POST /api/v1/annotate`, or run `annotatemissense annotate-vcf` offline with no size limit. Output is your VCF plus `AnnotateMissense_score/_pred/_status` INFO fields. | [VCF](vcf.md) |
-| What do I install? | Nothing to use the web server. Local use: Python ≥ 3.9 + `duckdb` (+ Flask for the server). No ANNOVAR, GPU or dbNSFP download. | [Requirements](requirements.md) |
+| What do I install? | Nothing to use the web server. Local use: Python ≥ 3.10 + `duckdb` (+ Flask for the server). No ANNOVAR, GPU or dbNSFP download. | [Requirements](requirements.md) |
 | Hardware / storage / runtime? | Local lookup: 20.8 GB download, ≈50–55 GB extracted (estimated), any laptop. Measured: ~0.1 s per API lookup, ~11 s per 100,000 VCF alleles. The genome-wide rebuild is an HPC job: ~1 TB intermediate storage, up to 128 GB RAM per job, days of compute. | [Requirements](requirements.md) |
 | How big is the database, and what's in it? | `variants.duckdb.gz`: 20,819,921,303 bytes. One table, `variants`, with 337 columns (allele key, ANNOVAR, dbNSFP v4.2a/c, gnomAD, ClinVar, AlphaMissense, ESM1v, AnnotateMissense prediction). | [Database](database.md) |
 | How are transcripts handled? | One AnnotateMissense score per genomic allele. Features come from several sources, each with its own transcript (all overlapping dbNSFP transcripts; one AlphaMissense transcript; ESM1v GENCODE v43 proteins). Duplicate rows for an allele never carry different scores. | [Transcripts](transcripts.md) |
