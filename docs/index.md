@@ -35,6 +35,7 @@ AnnotateMissense integrates ANNOVAR gene/region/filter annotations, dbNSFP trans
 ## Components
 
 - **Pipeline and documentation:** [github.com/MuhammadMuneeb007/AnnotateMissense](https://github.com/MuhammadMuneeb007/AnnotateMissense)
+- **Live demo (chromosome 22):** <https://annotatemissense.vercel.app>
 - **Server, API and CLI:** [github.com/MuhammadMuneeb007/AnnotateMissense-Server](https://github.com/MuhammadMuneeb007/AnnotateMissense-Server)
 - **Data release (v1.0.0):** [doi:10.5281/zenodo.19981867](https://doi.org/10.5281/zenodo.19981867), files `variants.duckdb.gz` (20.8 GB) and `UQ_BioSig_model_Final.tsv.gz` (1.4 GB)
 

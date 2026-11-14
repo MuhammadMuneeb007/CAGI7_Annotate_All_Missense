@@ -4,12 +4,12 @@ Four ways in, from no installation at all to a full local copy.
 
 ## 1. Web browser (no installation)
 
-Open the AnnotateMissense server, enter `22 36305985 G A` (MYH9 p.R702C) and press **Search**. The page shows the AnnotateMissense score, ClinVar, predictors, conservation, gnomAD and the transcript context. See [Web server](server.md).
+Open the public demo at <https://annotatemissense.vercel.app> (chromosome 22), enter `22 36305985 G A` (MYH9 p.R702C) and press **Search**. The page shows the AnnotateMissense score, ClinVar, predictors, conservation, gnomAD and the transcript context. See [Web server](server.md).
 
 ## 2. REST API (no installation)
 
 ```bash
-SERVER=https://<annotatemissense-server>          # public instance or your own, see Web server
+SERVER=https://annotatemissense.vercel.app        # public demo (chr22); or your own server
 curl "$SERVER/api/v1/variant/22:36305985:G:A"
 ```
 

@@ -1,6 +1,6 @@
 # REST API
 
-Base URL: `<server>/api/v1`. Responses are JSON with a `status` field (`success`, `ok` or `error`). CORS is enabled, no API key is needed and no cookies are set. Coordinates are GRCh38 and 1-based; chromosomes may be `22` or `chr22`.
+Base URL: `<server>/api/v1`; the public demo is `https://annotatemissense.vercel.app/api/v1` (chromosome 22, 4.5 MB upload limit). Responses are JSON with a `status` field (`success`, `ok` or `error`). CORS is enabled, no API key is needed and no cookies are set. Coordinates are GRCh38 and 1-based; chromosomes may be `22` or `chr22`.
 
 | Method | Endpoint | Purpose |
 |---|---|---|
@@ -59,7 +59,7 @@ See [Annotating a VCF](vcf.md) for the output fields.
 ```python
 import requests
 
-SERVER = "https://<annotatemissense-server>"
+SERVER = "https://annotatemissense.vercel.app"
 r = requests.get(f"{SERVER}/api/v1/variant/22:36305985:G:A", timeout=60)
 r.raise_for_status()
 am = r.json()["annotatemissense"]
@@ -74,7 +74,7 @@ open("sample.annotatemissense.tsv", "wb").write(out.content)
 
 ```r
 library(httr2)
-server <- "https://<annotatemissense-server>"
+server <- "https://annotatemissense.vercel.app"
 resp <- request(server) |> req_url_path_append("api/v1/variant/22:36305985:G:A") |> req_perform()
 res  <- resp_body_json(resp)
 res$annotatemissense$score       # 0.999574

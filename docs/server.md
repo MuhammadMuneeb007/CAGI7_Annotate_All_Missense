@@ -2,10 +2,9 @@
 
 The AnnotateMissense server is a Flask application ([source](https://github.com/MuhammadMuneeb007/AnnotateMissense-Server)) that serves the released DuckDB database through a web interface and a [REST API](api.md). It sets no cookies, runs no analytics and stores no submitted data.
 
-!!! info "Public instance"
-    A demonstration instance serving the chromosome-22 extract of the release (1,681,296 rows, all 337 columns) is available at
-    **<https://lobby-dsc-superintendent-classics.trycloudflare.com>**.
-    It runs on the authors' workstation through a Cloudflare tunnel, so the address may change and availability is not guaranteed. The software is identical for the full genome-wide database; [self-host](#self-hosting) it for genome-wide or high-volume use.
+!!! info "Public demo: <https://annotatemissense.vercel.app>"
+    The demo serves **AnnotateMissense scores for all 1,664,217 chromosome-22 alleles** and **full 337-column reports for 15 chr22 disease genes**: MYH9, NF2, CHEK2, SMARCB1, COMT, LZTR1, ADSL, UBE2L3/RIMBP3, TBX1, SOX10, ARSA, TCN2, PDGFB, CRYBB2 and SLC5A1.
+    It runs the same code as a self-hosted server, on Vercel, from the `demo/` data bundled in the server repository (`scripts/build_demo_data.py`). Uploads are limited to 4.5 MB per request by the hosting platform. For genome-wide or high-volume use, [self-host](#self-hosting) the server with the full release or use the [offline CLI](cli.md).
 
 ## Search
 

@@ -4,7 +4,7 @@ AnnotateMissense annotates user-supplied VCFs **by lookup**. Each ALT allele is 
 
 | Where | Size limit | Data leaves your machine? |
 |---|---|---|
-| Web page `/annotate` | 10,000 ALT alleles (public instance) | yes, processed in memory and not stored |
+| Web page `/annotate` | 10,000 ALT alleles; 4.5 MB per upload on the public demo | yes, processed in memory and not stored |
 | API `POST /api/v1/annotate` | same as the server's `MAX_VCF_ALLELES` | yes, to the server you call |
 | CLI `annotatemissense annotate-vcf` | none | **no**, fully offline |
 
