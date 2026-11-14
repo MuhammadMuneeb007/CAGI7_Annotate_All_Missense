@@ -8,7 +8,11 @@ import os
 # Initialize Synapse connection with personal token
 # ------------------------------------------------
 syn = synapseclient.Synapse()
-syn.login(authToken="eyJ0eXAiOiJKV1QiLCJraWQiOiJXN05OOldMSlQ6SjVSSzpMN1RMOlQ3TDc6M1ZYNjpKRU9VOjY0NFI6VTNJWDo1S1oyOjdaQ0s6RlBUSCIsImFsZyI6IlJTMjU2In0.eyJhY2Nlc3MiOnsic2NvcGUiOlsidmlldyIsImRvd25sb2FkIiwibW9kaWZ5Il0sIm9pZGNfY2xhaW1zIjp7fX0sInRva2VuX3R5cGUiOiJQRVJTT05BTF9BQ0NFU1NfVE9LRU4iLCJpc3MiOiJodHRwczovL3JlcG8tcHJvZC5wcm9kLnNhZ2ViYXNlLm9yZy9hdXRoL3YxIiwiYXVkIjoiMCIsIm5iZiI6MTc1Njc4NzE3MiwiaWF0IjoxNzU2Nzg3MTcyLCJqdGkiOiIyNTM3NiIsInN1YiI6IjM1NTAzNDUifQ.XYAeq_J8VY0kqf7P5OI8GCnYfN566ZJkg998oAWXBs_Mj58ottorfD7wtG2w3TMXXnhigsVY5A27vM5Xq00sU4kDPLhdUE_Yg_ukz3S9urMUdTfl9YU7g1VQkzT2__ky_2XysrvO5bsgjJFjU2QY3GGDiL0LqMJx7_7SphrPp7N1PS5T41XSBZjppKMhynZJ_GP6G-fuChy-RkJVZS_UleoQXpXOY6sJCsjDfkhCbCoEj91kMTlFeOlU-NxVV1mHTwdRew7B065m8L9HWW7aX8CruxFMKFKAbxM5hWE7t8ndlfhg3z0mejc0RFSx4H9qQ6xHRiyrTZ5zo_iGf7qkEA")   # replace with your token
+# Never commit credentials. Configure SYNAPSE_AUTH_TOKEN in the environment.
+token = os.environ.get("SYNAPSE_AUTH_TOKEN")
+if not token:
+    raise RuntimeError("Set SYNAPSE_AUTH_TOKEN in the environment before uploading.")
+syn.login(authToken=token)   # replace with your token
 
 # ------------------------------------------------
 # 1. List all projects you have access to
