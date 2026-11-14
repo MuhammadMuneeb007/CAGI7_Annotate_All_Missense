@@ -13,6 +13,19 @@ Combined reported compressed size: approximately **22.2 GB**. The *uncompressed 
 
 The deposit describes genome-wide annotations and AnnotateMissense prediction outputs for a study of 90,643,830 hg38 missense variants. That study count is not independently confirmed as the current `COUNT(*)` or `COUNT(DISTINCT allele)` of each database table.
 
+## Generate an exact schema report with the included inspector
+
+From the repository root, after extracting `variants.duckdb`, run:
+
+```bash
+python -m pip install duckdb
+python Step7-InspectAnnotateMissenseDatabase.py variants.duckdb
+# Optional, potentially expensive complete scans:
+python Step7-InspectAnnotateMissenseDatabase.py variants.duckdb --count-rows --audit-alleles
+```
+
+The utility is read-only and saves `AnnotateMissense_database_schema.json` for reporting actual table names/types and possible duplicate allele keys. The expensive audits are opt-in. Publish its measured output after validating it against the actual release.
+
 ## Authoritative schema inspection
 
 **No table-level or column-level schema was published in the Zenodo record description.** Run these queries against the extracted `variants.duckdb` to record the exact table names, column names, types and row counts.
