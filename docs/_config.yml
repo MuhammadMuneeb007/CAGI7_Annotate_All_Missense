@@ -1,0 +1,4 @@
+title: AnnotateMissense
+description: Precomputed GRCh38/hg38 missense pathogenicity scores, database lookup and research documentation
+theme: jekyll-theme-cayman
+show_downloads: false
